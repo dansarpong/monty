@@ -18,6 +18,11 @@
 #define ERR_POP "L%d: can't pop an empty stack\n"
 #define ERR_SWP "L%d: can't swap, stack too short\n"
 #define ERR_ADD "L%d: can't add, stack too short\n"
+#define ERR_SUB "L%d: can't sub, stack too short\n"
+#define ERR_DIV "L%d: can't div, stack too short\n"
+#define ERR_DBZ "L%d: division by zero\n"
+#define ERR_MUL "L%d: can't mul, stack too short\n"
+#define ERR_MOD "L%d: can't mod, stack too short\n"
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -61,10 +66,16 @@ int check_extension(char *filename);
 void run_opc(char **line);
 
 /* stack operations */
-void pop(stack_t **, unsigned int);
 void push(stack_t **, unsigned int);
-void add(stack_t **, unsigned int);
+void pop(stack_t **, unsigned int);
 void swap(stack_t **, unsigned int);
+void add(stack_t **, unsigned int);
+
+/* stack operations 2 */
+void sub(stack_t **, unsigned int);
+void dvd(stack_t **, unsigned int);
+void mul(stack_t **, unsigned int);
+void mod(stack_t **, unsigned int);
 
 /* extra operations */
 void pall(stack_t **, unsigned int);

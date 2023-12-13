@@ -12,6 +12,10 @@ instruction_t opcodes[] = {
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
+		{"div", dvd},
+		{"mul", mul},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 
