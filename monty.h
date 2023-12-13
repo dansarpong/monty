@@ -9,6 +9,10 @@
 #define ERR_OPN "Error: Can't open file %s\n"
 #define ERR_MLC "Error: malloc failed\n"
 #define ERR_PSH "L%d: usage: push integer\n"
+#define ERR_PNT "L%d: can't pint, stack empty\n"
+#define ERR_POP "L%d: can't pop an empty stack\n"
+#define ERR_SWP "L%d: can't swap, stack too short\n"
+#define ERR_ADD "L%d: can't add, stack too short\n"
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -41,9 +45,9 @@ typedef struct instruction_s
 } instruction_t;
 
 /* global variables */
+extern char *value, *line;
 extern stack_t *top;
-extern instruction_t opcodes[];
-extern unsigned int line_number;
+extern int line_number;
 
 /* helpers */
 int check_extension(char *filename);

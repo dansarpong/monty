@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int read_run(void);
+
 /**
   * main - entry point
   * @argc: argument count
@@ -32,20 +34,16 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	read_run(file);
-	fclose(file);
-	free_stack();
+	read_run();
 	return (0);
 }
 
 /**
   * read_run - read and run opcodes from file
-  * @file: file to read
-  * Return: 0 upon success, 1 otherwise (exit)
 */
-int read_run(FILE *file)
+void read_run(void)
 {
-	char *line = NULL, *tmp;
+	char *line = NULL;
 	size_t len = 0;
 	ssize_t read;
 	unsigned int line_number = 0;
@@ -60,10 +58,8 @@ int read_run(FILE *file)
 		line_number++;
 		if (line[0] == '\n')
 			continue;
-		tmp = line;
-		run_opc(&tmp);
+		run_opc(&line);
 	}
 
-	free(line);
-	return (0);
+	pre_quit();
 }
