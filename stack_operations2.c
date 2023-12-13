@@ -1,6 +1,31 @@
 #include "monty.h"
 
 /**
+  * add - add the top two elements of the stack
+  * @s: unused
+  * @l: unused
+  * Return: 0 upon success
+*/
+void add(__attribute__((unused))stack_t **s,
+		__attribute__((unused))unsigned int l)
+{
+	stack_t *tmp;
+
+	if (top == NULL || top->next == NULL)
+	{
+		fprintf(stderr, ERR_ADD, line_number);
+		pre_quit();
+		exit(EXIT_FAILURE);
+	}
+
+	tmp = top;
+	top = top->next;
+	top->n += tmp->n;
+	top->prev = NULL;
+	free(tmp);
+}
+
+/**
   * sub - add the top two elements of the stack
   * @s: unused
   * @l: unused
@@ -10,7 +35,6 @@ void sub(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
 {
 	stack_t *tmp;
-	int n;
 
 	if (top == NULL || top->next == NULL)
 	{
@@ -21,8 +45,7 @@ void sub(__attribute__((unused))stack_t **s,
 
 	tmp = top;
 	top = top->next;
-	n = tmp->n - top->n;
-	top->n = n;
+	top->n -= tmp->n;
 	top->prev = NULL;
 	free(tmp);
 }
@@ -37,7 +60,6 @@ void dvd(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
 {
 	stack_t *tmp;
-	int n;
 
 	if (top == NULL || top->next == NULL)
 	{
@@ -55,8 +77,7 @@ void dvd(__attribute__((unused))stack_t **s,
 
 	tmp = top;
 	top = top->next;
-	n = tmp->n / top->n;
-	top->n = n;
+	top->n /= tmp->n;
 	top->prev = NULL;
 	free(tmp);
 }
@@ -71,7 +92,6 @@ void mul(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
 {
 	stack_t *tmp;
-	int n;
 
 	if (top == NULL || top->next == NULL)
 	{
@@ -82,8 +102,7 @@ void mul(__attribute__((unused))stack_t **s,
 
 	tmp = top;
 	top = top->next;
-	n = tmp->n * top->n;
-	top->n = n;
+	top->n *= tmp->n;
 	top->prev = NULL;
 	free(tmp);
 }
@@ -98,7 +117,6 @@ void mod(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
 {
 	stack_t *tmp;
-	int n;
 
 	if (top == NULL || top->next == NULL)
 	{
@@ -116,8 +134,7 @@ void mod(__attribute__((unused))stack_t **s,
 
 	tmp = top;
 	top = top->next;
-	n = tmp->n % top->n;
-	top->n = n;
+	top->n %= tmp->n;
 	top->prev = NULL;
 	free(tmp);
 }

@@ -80,30 +80,3 @@ void swap(__attribute__((unused))stack_t **s,
 	top->n = top->next->n;
 	top->next->n = tmp;
 }
-
-/**
-  * add - add the top two elements of the stack
-  * @s: unused
-  * @l: unused
-  * Return: 0 upon success
-*/
-void add(__attribute__((unused))stack_t **s,
-		__attribute__((unused))unsigned int l)
-{
-	stack_t *tmp;
-	int n;
-
-	if (top == NULL || top->next == NULL)
-	{
-		fprintf(stderr, ERR_ADD, line_number);
-		pre_quit();
-		exit(EXIT_FAILURE);
-	}
-
-	tmp = top;
-	top = top->next;
-	n = tmp->n + top->n;
-	top->n = n;
-	top->prev = NULL;
-	free(tmp);
-}

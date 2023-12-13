@@ -69,9 +69,9 @@ void run_opc(char **line);
 void push(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
 void swap(stack_t **, unsigned int);
-void add(stack_t **, unsigned int);
 
 /* stack operations 2 */
+void add(stack_t **, unsigned int);
 void sub(stack_t **, unsigned int);
 void dvd(stack_t **, unsigned int);
 void mul(stack_t **, unsigned int);
