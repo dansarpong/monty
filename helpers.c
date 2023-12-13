@@ -26,7 +26,7 @@ void run_opc(char **line)
 	int i;
 
 	opcode = strtok(tmp, " \n\t");
-	if (opcode == NULL)
+	if (opcode == NULL || opcode[0] == '#')
 		return;
 	value = strtok(NULL, " \n\t");
 	for (i = 0; opcodes[i].opcode != NULL; i++)
