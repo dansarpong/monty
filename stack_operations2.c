@@ -51,7 +51,7 @@ void sub(__attribute__((unused))stack_t **s,
 }
 
 /**
-  * divide - divide the top two elements of the stack
+  * dvd - divide the top two elements of the stack
   * @s: unused
   * @l: unused
   * Return: 0 upon success

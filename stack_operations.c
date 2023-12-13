@@ -11,6 +11,7 @@ void push(__attribute__((unused))stack_t **s,
 {
 	stack_t *new = malloc(sizeof(stack_t));
 	int i = atoi(value);
+	char buf[10];
 
 	if (new == NULL)
 	{
@@ -19,7 +20,8 @@ void push(__attribute__((unused))stack_t **s,
 		exit(EXIT_FAILURE);
 	}
 
-	if (i == 0 && value[0] != '0')
+	sprintf(buf, "%d", i);
+	if (value == NULL || (strcmp(value, buf) != 0))
 	{
 		fprintf(stderr, ERR_PSH, line_number);
 		free(new);
