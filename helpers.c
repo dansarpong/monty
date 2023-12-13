@@ -22,7 +22,7 @@ int check_extension(char *file)
 */
 void run_opc(char **line)
 {
-	char *opcode, *value, *tmp = *line;
+	char *opcode, *tmp = *line;
 	int i;
 
 	opcode = strtok(tmp, " \n\t");
@@ -33,7 +33,7 @@ void run_opc(char **line)
 	{
 		if (strcmp(opcode, opcodes[i].opcode) == 0)
 		{
-			if (opcodes[i].f(NULL, NULL) != 0)
+			if (opcodes[i].f(NULL, 0) != 0)
 			{
 				pre_quit();
 				exit(EXIT_FAILURE);

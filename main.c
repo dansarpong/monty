@@ -1,6 +1,21 @@
 #include "monty.h"
 
-int read_run(void);
+stack_t *top = NULL;
+char *value, *line;
+int line_number = 0;
+FILE *file;
+instruction_t opcodes[] = {
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
+		{NULL, NULL}
+	};
+
+void read_run(void);
 
 /**
   * main - entry point
@@ -11,8 +26,6 @@ int read_run(void);
 int main(int argc, char **argv)
 {
 	char *f;
-	stack_t *top = NULL;
-	FILE *file;
 
 	if (argc != 2)
 	{
@@ -28,7 +41,7 @@ int main(int argc, char **argv)
 	}
 
 	file = fopen(f, "r");
-	if (file == -1)
+	if (!file)
 	{
 		fprintf(stderr, ERR_OPN, f);
 		exit(EXIT_FAILURE);
@@ -45,15 +58,9 @@ void read_run(void)
 {
 	char *line = NULL;
 	size_t len = 0;
-	ssize_t read;
 	unsigned int line_number = 0;
-	instruction_t opcodes[] = {
-		{"push", push},
-		{"pall", pall},
-		{NULL, NULL}
-	};
 
-	while ((read = getline(&line, &len, file)) != -1)
+	while (getline(&line, &len, file) != -1)
 	{
 		line_number++;
 		if (line[0] == '\n')

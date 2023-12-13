@@ -30,7 +30,7 @@ int pint(__attribute__((unused))stack_t **s,
 {
 	if (!top)
 	{
-		fprintf(stderr, ERR_PNT, line_number)
+		fprintf(stderr, ERR_PNT, line_number);
 		return (1);
 	}
 

@@ -18,7 +18,7 @@ int push(__attribute__((unused))stack_t **s,
 		return (1);
 	}
 
-	if (i == 0 && n[0] != '0')
+	if (i == 0 && value[0] != '0')
 	{
 		fprintf(stderr, ERR_PSH, line_number);
 		return (1);

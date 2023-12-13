@@ -1,8 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _GNU_SOURCE
 
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
 
 /* error messages */
 #define ERR_USE "USAGE: monty file\n"
@@ -41,29 +45,33 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	int (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /* global variables */
 extern char *value, *line;
 extern stack_t *top;
 extern int line_number;
+extern FILE *file;
+extern instruction_t opcodes[];
 
 /* helpers */
 int check_extension(char *filename);
+void run_opc(char **line);
 
 /* stack operations */
-void pop(stack_t **, unsigned int);
-void push(stack_t **, unsigned int);
-void add(stack_t **, unsigned int);
-void swap(stack_t **, unsigned int);
+int pop(stack_t **, unsigned int);
+int push(stack_t **, unsigned int);
+int add(stack_t **, unsigned int);
+int swap(stack_t **, unsigned int);
 
 /* extra operations */
-void pall(stack_t **, unsigned int);
-void pint(stack_t **, unsigned int);
-void nop(stack_t **, unsigned int);
+int pall(stack_t **, unsigned int);
+int pint(stack_t **, unsigned int);
+int nop(stack_t **, unsigned int);
 
 /* memory management */
 void free_stack(void);
+void pre_quit(void);
 
 #endif /* MONTY_H */
