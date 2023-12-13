@@ -21,6 +21,7 @@ int push(__attribute__((unused))stack_t **s,
 	if (i == 0 && value[0] != '0')
 	{
 		fprintf(stderr, ERR_PSH, line_number);
+		free(new);
 		return (1);
 	}
 

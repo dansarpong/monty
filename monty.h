@@ -11,6 +11,7 @@
 /* error messages */
 #define ERR_USE "USAGE: monty file\n"
 #define ERR_OPN "Error: Can't open file %s\n"
+#define ERR_UKN "L%d: unknown instruction %s\n"
 #define ERR_MLC "Error: malloc failed\n"
 #define ERR_PSH "L%d: usage: push integer\n"
 #define ERR_PNT "L%d: can't pint, stack empty\n"

@@ -41,4 +41,8 @@ void run_opc(char **line)
 			return;
 		}
 	}
+
+	fprintf(stderr, ERR_UKN, line_number, opcode);
+	pre_quit();
+	exit(EXIT_FAILURE);
 }

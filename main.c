@@ -57,7 +57,6 @@ int main(int argc, char **argv)
 void read_run(void)
 {
 	size_t len = 0;
-	unsigned int line_number = 0;
 
 	while (getline(&line, &len, file) != -1)
 	{
