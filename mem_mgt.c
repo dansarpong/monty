@@ -14,3 +14,14 @@ void free_stack(void)
 		free(tmp);
 	}
 }
+
+/**
+  * pre_quit - safely exit program in any state
+ */
+void pre_quit(void)
+{
+	free_stack();
+	fclose(file);
+	if (line)
+		free(line);
+}
