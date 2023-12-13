@@ -56,7 +56,6 @@ int main(int argc, char **argv)
 */
 void read_run(void)
 {
-	char *line = NULL;
 	size_t len = 0;
 	unsigned int line_number = 0;
 
