@@ -1,34 +1,51 @@
 #include "monty.h"
 
 /**
-  * print_all - prints all the elements of the stack
+  * pall - prints all the elements of the stack
+  * @s: unused
+  * @l: unused
+  * Return: 0 on success
 */
-void print_all(void)
+int pall(__attribute__((unused))stack_t **s,
+		__attribute__((unused))unsigned int l)
 {
 	stack_t *tmp = top;
 
 	while (tmp != NULL)
 	{
-		/* TODO: print */
+		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
+	return (0);
 }
 
 /**
-  * print_top - prints the top element of the stack
+  * pint - prints the top element of the stack
+  * @s: unused
+  * @l: unused
+  * Return: 0 on success
 */
-void print_top(void)
+int pint(__attribute__((unused))stack_t **s,
+		__attribute__((unused))unsigned int l)
 {
 	if (!top)
 	{
-		/* TODO: errmsg */
-		exit();
+		fprintf(stderr, ERR_PNT, line_number)
+		return (1);
 	}
 
-	/* TODO: print */
+	printf("%d\n", top->n);
+	return (0);
 }
 
 /**
   * nop - does nothing
+  * @s: unused
+  * @l: unused
+  * Return: 0 on success
 */
-void nop(void) {}
+int nop(__attribute__((unused))stack_t **s,
+		__attribute__((unused))unsigned int l)
+{
+	return (0);
+}
