@@ -6,7 +6,7 @@
   * @l: unused
   * Return: 0 on success
 */
-int pall(__attribute__((unused))stack_t **s,
+void pall(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
 {
 	stack_t *tmp = top;
@@ -16,7 +16,6 @@ int pall(__attribute__((unused))stack_t **s,
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
-	return (0);
 }
 
 /**
@@ -25,17 +24,17 @@ int pall(__attribute__((unused))stack_t **s,
   * @l: unused
   * Return: 0 on success
 */
-int pint(__attribute__((unused))stack_t **s,
+void pint(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
 {
 	if (!top)
 	{
 		fprintf(stderr, ERR_PNT, line_number);
-		return (1);
+		pre_quit();
+		exit(EXIT_FAILURE);
 	}
 
 	printf("%d\n", top->n);
-	return (0);
 }
 
 /**
@@ -44,8 +43,5 @@ int pint(__attribute__((unused))stack_t **s,
   * @l: unused
   * Return: 0 on success
 */
-int nop(__attribute__((unused))stack_t **s,
-		__attribute__((unused))unsigned int l)
-{
-	return (0);
-}
+void nop(__attribute__((unused))stack_t **s,
+		__attribute__((unused))unsigned int l) {}

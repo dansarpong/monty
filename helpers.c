@@ -33,11 +33,7 @@ void run_opc(char **line)
 	{
 		if (strcmp(opcode, opcodes[i].opcode) == 0)
 		{
-			if (opcodes[i].f(NULL, 0) != 0)
-			{
-				pre_quit();
-				exit(EXIT_FAILURE);
-			}
+			opcodes[i].f(NULL, 0);
 			return;
 		}
 	}

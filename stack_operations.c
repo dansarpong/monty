@@ -6,7 +6,7 @@
   * @l: unused
   * Return: 0 upon success
 */
-int push(__attribute__((unused))stack_t **s,
+void push(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
 {
 	stack_t *new = malloc(sizeof(stack_t));
@@ -15,14 +15,16 @@ int push(__attribute__((unused))stack_t **s,
 	if (new == NULL)
 	{
 		fprintf(stderr, ERR_MLC);
-		return (1);
+		pre_quit();
+		exit(EXIT_FAILURE);
 	}
 
 	if (i == 0 && value[0] != '0')
 	{
 		fprintf(stderr, ERR_PSH, line_number);
 		free(new);
-		return (1);
+		pre_quit();
+		exit(EXIT_FAILURE);
 	}
 
 	new->n = i;
@@ -31,7 +33,6 @@ int push(__attribute__((unused))stack_t **s,
 	if (top != NULL)
 		top->prev = new;
 	top = new;
-	return (0);
 }
 
 /**
@@ -40,7 +41,7 @@ int push(__attribute__((unused))stack_t **s,
   * @l: unused
   * Return: 0 upon success
 */
-int pop(__attribute__((unused))stack_t **s,
+void pop(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
 {
 	stack_t *tmp;
@@ -48,13 +49,13 @@ int pop(__attribute__((unused))stack_t **s,
 	if (top == NULL)
 	{
 		fprintf(stderr, ERR_POP, line_number);
-		return (1);
+		pre_quit();
+		exit(EXIT_FAILURE);
 	}
 
 	tmp = top;
 	top = top->next;
 	free(tmp);
-	return (0);
 }
 
 /**
@@ -63,7 +64,7 @@ int pop(__attribute__((unused))stack_t **s,
   * @l: unused
   * Return: 0 upon success
 */
-int swap(__attribute__((unused))stack_t **s,
+void swap(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
 {
 	int tmp;
@@ -71,13 +72,13 @@ int swap(__attribute__((unused))stack_t **s,
 	if (top == NULL || top->next == NULL)
 	{
 		fprintf(stderr, ERR_SWP, line_number);
-		return (1);
+		pre_quit();
+		exit(EXIT_FAILURE);
 	}
 
 	tmp = top->n;
 	top->n = top->next->n;
 	top->next->n = tmp;
-	return (0);
 }
 
 /**
@@ -86,7 +87,7 @@ int swap(__attribute__((unused))stack_t **s,
   * @l: unused
   * Return: 0 upon success
 */
-int add(__attribute__((unused))stack_t **s,
+void add(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
 {
 	stack_t *tmp;
@@ -95,7 +96,8 @@ int add(__attribute__((unused))stack_t **s,
 	if (top == NULL || top->next == NULL)
 	{
 		fprintf(stderr, ERR_ADD, line_number);
-		return (1);
+		pre_quit();
+		exit(EXIT_FAILURE);
 	}
 
 	tmp = top;
@@ -104,5 +106,4 @@ int add(__attribute__((unused))stack_t **s,
 	top->n = n;
 	top->prev = NULL;
 	free(tmp);
-	return (0);
 }
