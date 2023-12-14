@@ -19,6 +19,14 @@ void push(__attribute__((unused))stack_t **s,
 		exit(EXIT_FAILURE);
 	}
 
+	if (value == NULL)
+	{
+		fprintf(stderr, ERR_PSH, line_number);
+		free(new);
+		pre_quit();
+		exit(EXIT_FAILURE);
+	}
+
 	for (i = 0; value[i] != '\0'; i++)
 	{
 		if (!isdigit(value[i]) && value[i] != '-')
