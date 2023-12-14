@@ -59,7 +59,7 @@ typedef struct instruction_s
 /* global variables */
 extern char *value, *line;
 extern stack_t *top;
-extern int line_number;
+extern int line_number, stack_mode;
 extern FILE *file;
 extern instruction_t opcodes[];
 
@@ -88,6 +88,12 @@ void pint(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void pchar(stack_t **, unsigned int);
 void pstr(stack_t **, unsigned int);
+
+/* stack and queue modes */
+void stack(stack_t **, unsigned int);
+void queue(stack_t **, unsigned int);
+void addnode(stack_t *);
+void addnode_end(stack_t *);
 
 /* memory management */
 void free_stack(void);

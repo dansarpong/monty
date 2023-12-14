@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
-  * push - pushes an element to the stack
+  * push - pushes an element onto the structure
   * @s: unused
   * @l: unused
   * Return: 0 upon success
@@ -30,15 +30,14 @@ void push(__attribute__((unused))stack_t **s,
 	}
 
 	new->n = i;
-	new->next = top;
-	new->prev = NULL;
-	if (top != NULL)
-		top->prev = new;
-	top = new;
+	if (stack_mode == 1)
+		addnode(new);
+	else
+		addnode_end(new);
 }
 
 /**
-  * pop - removes the top element of the stack
+  * pop - removes the top element
   * @s: unused
   * @l: unused
   * Return: 0 upon success

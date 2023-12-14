@@ -2,7 +2,7 @@
 
 stack_t *top = NULL;
 char *value, *line;
-int line_number = 0;
+int line_number = 0, stack_mode = 1;
 FILE *file;
 instruction_t opcodes[] = {
 		{"push", push},
@@ -20,6 +20,8 @@ instruction_t opcodes[] = {
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"stack", stack},
+		{"queue", queue},
 		{NULL, NULL}
 	};
 
