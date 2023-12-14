@@ -10,8 +10,7 @@ void push(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
 {
 	stack_t *new = malloc(sizeof(stack_t));
-	int i = atoi(value);
-	char buf[10];
+	int i;
 
 	if (new == NULL)
 	{
@@ -20,16 +19,18 @@ void push(__attribute__((unused))stack_t **s,
 		exit(EXIT_FAILURE);
 	}
 
-	sprintf(buf, "%d", i);
-	if (value == NULL || (strcmp(value, buf) != 0))
+	for (i = 0; value[i] != '\0'; i++)
 	{
-		fprintf(stderr, ERR_PSH, line_number);
-		free(new);
-		pre_quit();
-		exit(EXIT_FAILURE);
+		if (!isdigit(value[i]) && value[i] != '-')
+		{
+			fprintf(stderr, ERR_PSH, line_number);
+			free(new);
+			pre_quit();
+			exit(EXIT_FAILURE);
+		}
 	}
 
-	new->n = i;
+	new->n = atoi(value);
 	if (stack_mode == 1)
 		addnode(new);
 	else
