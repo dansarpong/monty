@@ -16,6 +16,8 @@ instruction_t opcodes[] = {
 		{"div", dvd},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 

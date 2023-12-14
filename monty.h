@@ -23,6 +23,8 @@
 #define ERR_DBZ "L%d: division by zero\n"
 #define ERR_MUL "L%d: can't mul, stack too short\n"
 #define ERR_MOD "L%d: can't mod, stack too short\n"
+#define ERR_PCR "L%d: can't pchar, value out of range\n"
+#define ERR_PCS "L%d: can't pchar, stack empty\n"
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -62,8 +64,9 @@ extern FILE *file;
 extern instruction_t opcodes[];
 
 /* helpers */
-int check_extension(char *filename);
-void run_opc(char **line);
+int check_extension(char *);
+void run_opc(char **);
+int printchar(int);
 
 /* stack operations */
 void push(stack_t **, unsigned int);
@@ -81,6 +84,10 @@ void mod(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
+
+/* extra operations 2 */
+void pchar(stack_t **, unsigned int);
+void pstr(stack_t **, unsigned int);
 
 /* memory management */
 void free_stack(void);

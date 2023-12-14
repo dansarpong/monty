@@ -42,3 +42,17 @@ void run_opc(char **line)
 	pre_quit();
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * printchar - prints a character by their ascii value
+ * @n: ascii value to check and print
+ * Return: 0 on success
+ */
+int printchar(int n)
+{
+	if (n < 0 || n > 127)
+		return (1);
+
+	printf("%c", (char)n);
+	return (0);
+}
