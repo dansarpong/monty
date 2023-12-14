@@ -1,7 +1,9 @@
 #include "monty.h"
 
 /**
- * stack - sets the format of the data to a stack (LIFO)
+  * stack - sets the format of the data to a stack (LIFO)
+  * @s: unused
+  * @l: unused
  */
 void stack(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
@@ -10,7 +12,9 @@ void stack(__attribute__((unused))stack_t **s,
 }
 
 /**
- * queue - sets the format of the data to a queue (FIFO)
+  * queue - sets the format of the data to a queue (FIFO)
+  * @s: unused
+  * @l: unused
  */
 void queue(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
@@ -19,8 +23,8 @@ void queue(__attribute__((unused))stack_t **s,
 }
 
 /**
- * addnode_end - adds a node to the end of the list
- * @new: node to add
+  * addnode - adds a node to the end of the list
+  * @new: node to add
  */
 void addnode(stack_t *new)
 {
@@ -32,8 +36,8 @@ void addnode(stack_t *new)
 }
 
 /**
- * addnode_end - adds a node to the end of the list
- * @new: node to add
+  * addnode_end - adds a node to the end of the list
+  * @new: node to add
  */
 void addnode_end(stack_t *new)
 {

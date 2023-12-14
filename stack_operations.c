@@ -63,7 +63,6 @@ void pop(__attribute__((unused))stack_t **s,
   * swap - swaps the top two elements of the stack
   * @s: unused
   * @l: unused
-  * Return: 0 upon success
 */
 void swap(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
@@ -83,7 +82,9 @@ void swap(__attribute__((unused))stack_t **s,
 }
 
 /**
- * rotl - rotates the stack to the top
+  * rotl - rotates the stack to the top
+  * @s: unused
+  * @l: unused
  */
 void rotl(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
@@ -93,7 +94,7 @@ void rotl(__attribute__((unused))stack_t **s,
 	if (!top || !top->next)
 		return;
 
-	while(last->next)
+	while (last->next)
 		last = last->next;
 
 	top = top->next;
@@ -105,7 +106,9 @@ void rotl(__attribute__((unused))stack_t **s,
 }
 
 /**
- * rotr - rotates the stack to the top
+  * rotr - rotates the stack to the top
+  * @s: unused
+  * @l: unused
  */
 void rotr(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
@@ -115,7 +118,7 @@ void rotr(__attribute__((unused))stack_t **s,
 	if (!top || !top->next)
 		return;
 
-	while(last->next)
+	while (last->next)
 		last = last->next;
 
 	last->prev->next = NULL;
