@@ -84,8 +84,6 @@ void mod(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
-
-/* extra operations 2 */
 void pchar(stack_t **, unsigned int);
 void pstr(stack_t **, unsigned int);
 
