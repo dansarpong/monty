@@ -72,6 +72,8 @@ int printchar(int);
 void push(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
 void swap(stack_t **, unsigned int);
+void rotl(stack_t **, unsigned int);
+void rotr(stack_t **, unsigned int);
 
 /* stack operations 2 */
 void add(stack_t **, unsigned int);
