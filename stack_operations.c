@@ -10,7 +10,7 @@ void push(__attribute__((unused))stack_t **s,
 		__attribute__((unused))unsigned int l)
 {
 	stack_t *new = malloc(sizeof(stack_t));
-	int i;
+	int i = 0;
 
 	if (new == NULL)
 	{
@@ -19,23 +19,27 @@ void push(__attribute__((unused))stack_t **s,
 		exit(EXIT_FAILURE);
 	}
 
-	if (value == NULL)
+	if (value)
+	{
+		if (value[0] == '-')
+			i = 1;
+		for (; value[i] != '\0'; i++)
+		{
+			if (!isdigit(value[i]))
+			{
+				fprintf(stderr, ERR_PSH, line_number);
+				free(new);
+				pre_quit();
+				exit(EXIT_FAILURE);
+			}
+		}
+	}
+	else
 	{
 		fprintf(stderr, ERR_PSH, line_number);
 		free(new);
 		pre_quit();
 		exit(EXIT_FAILURE);
-	}
-
-	for (i = 0; value[i] != '\0'; i++)
-	{
-		if (!isdigit(value[i]) && value[i] != '-')
-		{
-			fprintf(stderr, ERR_PSH, line_number);
-			free(new);
-			pre_quit();
-			exit(EXIT_FAILURE);
-		}
 	}
 
 	new->n = atoi(value);
