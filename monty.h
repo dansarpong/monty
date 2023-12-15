@@ -65,9 +65,10 @@ extern FILE *file;
 extern instruction_t opcodes[];
 
 /* helpers */
-int check_extension(char *);
 void run_opc(char **);
 int printchar(int);
+void free_stack(void);
+void pre_quit(void);
 
 /* stack operations */
 void push(stack_t **, unsigned int);
@@ -95,9 +96,5 @@ void stack(stack_t **, unsigned int);
 void queue(stack_t **, unsigned int);
 void addnode(stack_t *);
 void addnode_end(stack_t *);
-
-/* memory management */
-void free_stack(void);
-void pre_quit(void);
 
 #endif /* MONTY_H */

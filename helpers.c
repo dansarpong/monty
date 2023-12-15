@@ -1,22 +1,6 @@
 #include "monty.h"
 
 /**
-  * check_extension - check for the extension of the file (.m)
-  * @file: file to check
-  * Return: 0 on success
-*/
-int check_extension(char *file)
-{
-	int i = 0;
-
-	while (file[i])
-		i++;
-	if (file[i - 1] != 'm' || file[i - 2] != '.')
-		return (1);
-	return (0);
-}
-
-/**
   * run_opc - run opcode
   * @line: line to read
 */
@@ -55,4 +39,30 @@ int printchar(int n)
 
 	printf("%c", (char)n);
 	return (0);
+}
+
+/**
+  * free_stack - frees a stack_t stack
+*/
+void free_stack(void)
+{
+	stack_t *tmp;
+
+	while (top != NULL)
+	{
+		tmp = top;
+		top = top->next;
+		free(tmp);
+	}
+}
+
+/**
+  * pre_quit - safely exit program in any state
+ */
+void pre_quit(void)
+{
+	free_stack();
+	fclose(file);
+	if (line)
+		free(line);
 }

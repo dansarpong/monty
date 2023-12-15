@@ -35,25 +35,16 @@ void read_run(void);
 */
 int main(int argc, char **argv)
 {
-	char *f;
-
 	if (argc != 2)
 	{
 		fprintf(stderr, ERR_USE);
 		exit(EXIT_FAILURE);
 	}
 
-	f = argv[1];
-	if (check_extension(f) == 1)
-	{
-		fprintf(stderr, ERR_OPN, f);
-		exit(EXIT_FAILURE);
-	}
-
-	file = fopen(f, "r");
+	file = fopen(argv[1], "r");
 	if (!file)
 	{
-		fprintf(stderr, ERR_OPN, f);
+		fprintf(stderr, ERR_OPN, argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
